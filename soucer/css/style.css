@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&display=swap');
+
+:root {
+    /* Cores Landing Page (Copa 2026) */
+    --bg-escuro: #0a0a1a;
+    --verde-neon: #00E676;
+    
+    /* Cores Quiz (Modelo Concorrente) */
+    --amarelo-fundo: #FFCC00;
+    --azul-principal: #1f3b93;
+    --azul-hover: #152968;
+    --branco: #FFFFFF;
+    --cinza-texto: #666666;
+    --cinza-borda: #dddddd;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-escuro);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    color: var(--branco);
+    transition: background-color 0.5s ease;
+}
+
+/* ==========================================
+   1. LANDING PAGE E CARROSSEL
+   ========================================== */
+.landing-container {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fifa-logo-placeholder { width: 120px; margin-bottom: 20px; filter: brightness(0) invert(1); }
+.hero-title { font-family: 'Anton', sans-serif; font-size: 2.2rem; line-height: 1.1; color: var(--amarelo-fundo); margin: 0 0 20px 0; text-transform: uppercase; }
+.hero-title span { color: var(--branco); }
+.badge-provasocial { background-color: var(--azul-principal); color: var(--amarelo-fundo); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 40px; }
+
+.images-stack { position: relative; width: 100%; height: 250px; margin-bottom: 30px; display: flex; justify-content: center; align-items: center; }
+.img-card { position: absolute; width: 140px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 3px solid var(--amarelo-fundo); }
+.img-left { transform: rotate(-15deg) translateX(-60px); z-index: 1; filter: brightness(0.7); }
+.img-right { transform: rotate(15deg) translateX(60px); z-index: 2; filter: brightness(0.7); }
+.img-center { transform: scale(1.1); z-index: 3; border-color: var(--verde-neon); }
+
+.landing-text { font-size: 0.9rem; line-height: 1.5; color: #cccccc; margin-bottom: 30px; font-weight: 600; }
+
+.btn-iniciar { background-color: var(--verde-neon); color: #000; font-family: 'Anton', sans-serif; font-size: 1.5rem; padding: 18px 40px; border: none; border-radius: 12px; width: 100%; cursor: pointer; text-transform: uppercase; box-shadow: 0 10px 25px rgba(0, 230, 118, 0.4); margin-bottom: 40px; transition: transform 0.2s; }
+.btn-iniciar:hover { transform: scale(1.02); }
+
+.social-proof-section { width: 100%; margin-bottom: 40px; text-align: center; }
+.social-title { font-family: 'Anton', sans-serif; color: var(--amarelo-fundo); font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+
+.carousel-container {
+    display: flex;
+    align-items: flex-start; 
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 15px;
+    scroll-behavior: smooth; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-container::-webkit-scrollbar { display: none; }
+
+.feedback-card { 
+    flex: 0 0 85%; 
+    scroll-snap-align: center; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+    border: 2px solid #222; 
+    height: max-content; 
+}
+.feedback-card img { width: 100%; height: auto; display: block; }
+
+.sticker-card { 
+    flex: 0 0 130px; 
+    scroll-snap-align: start; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+    border: 2px solid var(--verde-neon); 
+    height: max-content; 
+    display: flex; 
+}
+.sticker-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+}
+
+/* ==========================================
+   2. QUIZ CONTAINER (Escondido no inicio)
+   ========================================== */
+.quiz-container { display: none; background-color: var(--branco); width: 100%; max-width: 450px; border-radius: 20px; padding: 30px 20px; margin: 20px auto; box-sizing: border-box; color: #333; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.header-quiz { display: flex; justify-content: space-between; font-weight: 800; font-size: 0.9rem; color: #000; margin-bottom: 10px; }
+.progress-bar-bg { background-color: var(--branco); height: 12px; border-radius: 10px; margin-bottom: 30px; position: absolute; top: -25px; left: 0; right: 0; width: 100%; max-width: 450px; margin-left: auto; margin-right: auto; }
+.progress-bar-fill { background-color: var(--azul-principal); height: 100%; width: 25%; transition: width 0.4s ease; border-radius: 10px; }
+.quiz-wrapper { position: relative; width: 100%; max-width: 450px; display: none; flex-direction: column; margin-top: 40px; }
+.step { display: none; text-align: center; animation: fadeIn 0.4s; }
+.step.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+.step-icon { font-size: 2.5rem; margin-bottom: 5px; }
+h2 { font-family: 'Anton', sans-serif; color: var(--azul-principal); font-size: 1.8rem; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 1px; }
+p.subtitle { font-size: 0.9rem; color: var(--cinza-texto); margin-bottom: 25px; font-weight: 600; }
+.input-group { text-align: left; margin-bottom: 20px; }
+.input-group label { display: block; font-size: 0.75rem; font-weight: 800; color: var(--azul-principal); margin-bottom: 8px; text-transform: uppercase; }
+input, select { width: 100%; padding: 15px; border: 2px solid var(--cinza-borda); border-radius: 10px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: #333; box-sizing: border-box; outline: none; transition: 0.2s; }
+input:focus, select:focus { border-color: var(--azul-principal); }
+.upload-boxes { display: flex; gap: 10px; margin-bottom: 20px; }
+.upload-box { flex: 1; border: 2px dashed #bbb; border-radius: 10px; padding: 20px 10px; text-align: center; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: #333; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.upload-box input[type="file"] { display: none; }
+.nav-buttons { display: flex; gap: 10px; margin-top: 30px; }
+.btn { padding: 16px 20px; border: none; border-radius: 10px; font-family: 'Anton', sans-serif; font-size: 1.2rem; cursor: pointer; width: 100%; text-transform: uppercase; letter-spacing: 1px; transition: 0.2s; }
+.btn-primary { background-color: var(--azul-principal); color: var(--branco); }
+.btn-primary:hover { background-color: var(--azul-hover); }
+.btn-secondary { background-color: transparent; color: var(--azul-principal); border: 2px solid var(--azul-principal); }
+.review-box { background: #f9f9f9; border-radius: 15px; padding: 20px; text-align: left; margin-bottom: 20px; font-weight: 600; font-size: 0.9rem; color: #333; }
+.review-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; }
+.review-row:last-child { border-bottom: none; }
+.review-label { color: var(--azul-principal); font-family: 'Anton', sans-serif; font-size: 1rem; letter-spacing: 1px; }
+.loading-video { width: 100%; height: 350px; background-color: #eee; border-radius: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #999; font-weight: bold; overflow: hidden; position: relative; }
+.loading-video img { width: 100%; height: 100%; object-fit: cover; }
+.loading-bar-container { background: #e0e0e0; height: 8px; border-radius: 10px; width: 100%; margin-top: 20px; overflow: hidden;}
+.loading-bar-fill { background: var(--azul-principal); height: 100%; width: 0%; transition: width 3s linear; }
