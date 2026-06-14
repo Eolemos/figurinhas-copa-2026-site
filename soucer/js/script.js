@@ -1216,7 +1216,7 @@ async function startGeneration() {
 
         setLoadingProgress(35, "A IA começou a criar sua figurinha...");
 
-        const resposta = await fetch('http://localhost:3000/api/gerar', {
+        const resposta = await fetch('https://servidor-figurinhas-copa-2026-production.up.railway.app/api/gerar', {
             method: 'POST',
             body: pacoteDeDados
         });
@@ -1283,16 +1283,30 @@ async function startGeneration() {
 }
 
 function goToCheckout() {
-    const stickerId = localStorage.getItem('stickerId');
-    const emailCliente = localStorage.getItem('emailCliente');
+    const stickerId = localStorage.getItem('stickerId') || "";
+    const emailCliente = localStorage.getItem('emailCliente') || "";
+    const previewUrl = localStorage.getItem('previewUrl') || "";
+
+    const checkoutBase = "https://pay.kiwify.com.br/s6s1baf";
+
+    const parametros = new URLSearchParams();
+
+    parametros.set("email", emailCliente);
+
+    // Campos de rastreamento que a Kiwify devolve no webhook
+    parametros.set("sck", stickerId);
+    parametros.set("s1", stickerId);
+    parametros.set("s2", previewUrl);
+    parametros.set("src", "site_figurinhas_copa26");
+
+    const checkoutUrl = `${checkoutBase}?${parametros.toString()}`;
 
     console.log("Indo para checkout com:", {
         stickerId,
-        emailCliente
+        emailCliente,
+        previewUrl,
+        checkoutUrl
     });
 
-    alert("Próximo passo: conectar este botão ao checkout usando o stickerId: " + (stickerId || "não encontrado"));
-
-    // Exemplo futuro:
-    // window.location.href = `SEU_LINK_KIWIFY_AQUI?stickerId=${encodeURIComponent(stickerId || "")}&email=${encodeURIComponent(emailCliente || "")}`;
+    window.location.href = checkoutUrl;
 }
