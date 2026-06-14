@@ -9,9 +9,6 @@
 </head>
 <body>
 
-    <!-- ==========================================
-         1. TELA INICIAL
-         ========================================== -->
     <div class="landing-container" id="landing-page">
         <img src="soucer/img/fifa.png" alt="FIFA Logo" class="fifa-logo-placeholder">
         <h1 class="hero-title">Transforme seu filho em uma <span>figurinha personalizada</span> da copa 2026</h1>
@@ -27,7 +24,6 @@
         
         <button class="btn-iniciar" onclick="iniciarQuiz()">INICIAR ➔</button>
 
-        <!-- CARROSSEL DE FEEDBACKS -->
         <div class="social-proof-section">
             <h3 class="social-title">O QUE AS FAMÍLIAS ESTÃO DIZENDO</h3>
             <div class="carousel-container auto-scroll">
@@ -52,11 +48,9 @@
             </div>
         </div>
 
-        <!-- CARROSSEL DE FIGURINHAS -->
         <div class="social-proof-section">
             <h3 class="social-title">FIGURINHAS CRIADAS POR OUTRAS FAMÍLIAS</h3>
             <div class="carousel-container auto-scroll">
-                <div class="sticker-card"><img src="soucer/img/figurinhas/figurinha-ricardo.jpeg" alt="Fig"></div>
                 <div class="sticker-card"><img src="soucer/img/figurinhas/figurinha-miguel.png" alt="Fig"></div>
                 <div class="sticker-card"><img src="soucer/img/figurinhas/figurinha-helena.png" alt="Fig"></div>
                 <div class="sticker-card"><img src="soucer/img/figurinhas/figurinha-bentinho.jpeg" alt="Fig"></div>
@@ -67,19 +61,18 @@
 
     </div>
 
-    <!-- ==========================================
-         2. QUIZ
-         ========================================== -->
     <div class="quiz-wrapper" id="quiz-wrapper">
         <div class="header-quiz" id="header-quiz">
             <span id="step-counter">Passo 1 de 4</span>
             <span id="progress-percentage">25%</span>
         </div>
+
         <div class="progress-bar-bg" id="progress-bar-bg">
             <div class="progress-bar-fill" id="progress-bar-fill"></div>
         </div>
 
         <div class="quiz-container" id="quiz-area">
+
             <div class="step active" id="step-1">
                 <div class="step-icon">✍️</div>
                 <h2>QUAL O NOME DO CRAQUE?</h2>
@@ -91,17 +84,52 @@
 
                 <div class="input-group" style="margin-top: 30px;">
                     <label>FOTO DO CRAQUE</label>
+                    
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: left; border: 1px solid #ffe69c;">
+                        <h4 style="margin: 0 0 10px 0; color: #856404; font-size: 1rem;">⚠️ PARA A FIGURINHA FICAR PERFEITA:</h4>
+                        <ul style="margin: 0; padding-left: 20px; color: #856404; font-size: 0.9rem; line-height: 1.5;">
+                            <li>Tire uma selfie de frente, olhando direto para a câmera.</li>
+                            <li>Fique em um lugar bem iluminado. De frente para uma janela é ideal.</li>
+                            <li>Evite óculos, boné ou cabelo cobrindo o rosto.</li>
+                            <li><strong>NÃO</strong> envie foto de documentos, RG, CNH ou fotos escuras.</li>
+                        </ul>
+                    </div>
+
                     <div class="upload-boxes">
-                        <label class="upload-box">
-                            <span style="font-size: 24px;">🖼️</span> Enviar foto<br>DO ROSTO
-                            <input type="file" accept="image/*">
+                        <label class="upload-box" id="upload-box-arquivo">
+                            <span style="font-size: 24px;">🖼️</span>
+                            Enviar foto<br>DO ROSTO
+                            <input id="input-foto-arquivo" class="input-foto-cliente" type="file" accept="image/*">
                         </label>
-                        <label class="upload-box">
-                            <span style="font-size: 24px;">📷</span> Câmera
-                            <input type="file" accept="image/*" capture="user">
+
+                        <label class="upload-box" id="upload-box-camera">
+                            <span style="font-size: 24px;">📷</span>
+                            Câmera
+                            <input id="input-foto-camera" class="input-foto-cliente" type="file" accept="image/*" capture="user">
                         </label>
                     </div>
+
+                    <div id="preview-foto-container" class="preview-foto-container" style="display: none;">
+                        <div class="preview-foto-status">
+                            ✅ Foto carregada com sucesso
+                        </div>
+
+                        <div class="preview-foto-box">
+                            <img id="preview-foto-cliente" src="" alt="Prévia da foto enviada">
+                        </div>
+
+                        <p id="preview-foto-nome" class="preview-foto-nome"></p>
+
+                        <p class="preview-foto-info">
+                            Você pode trocar ou remover a foto antes de continuar.
+                        </p>
+
+                        <button type="button" class="btn-remover-foto" onclick="removerFotoSelecionada()">
+                            REMOVER FOTO
+                        </button>
+                    </div>
                 </div>
+
                 <div class="nav-buttons">
                     <button class="btn btn-primary" onclick="nextStep(2)">PRÓXIMO ➔</button>
                 </div>
@@ -116,9 +144,11 @@
                     <div class="input-group" style="flex: 1; margin-bottom: 0;">
                         <input type="number" placeholder="DIA">
                     </div>
+
                     <div class="input-group" style="flex: 1; margin-bottom: 0;">
                         <input type="number" placeholder="MÊS">
                     </div>
+
                     <div class="input-group" style="flex: 1; margin-bottom: 0;">
                         <input type="number" placeholder="ANO">
                     </div>
@@ -126,8 +156,9 @@
 
                 <div class="input-group">
                     <label>SEU MELHOR E-MAIL</label>
-                    <input type="email" placeholder="exemplo@email.com">
+                    <input type="email" id="input-email" placeholder="exemplo@email.com">
                 </div>
+
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevStep(1)">VOLTAR</button>
                     <button class="btn btn-primary" onclick="nextStep(3)">PRÓXIMO ➔</button>
@@ -141,23 +172,44 @@
 
                 <div class="input-group">
                     <label>CLUBE DO CORAÇÃO</label>
-                    <select id="input-clube">
-                        <option value="" disabled selected>Escolha o clube...</option>
-                        <option value="Seleção Brasileira">Seleção Brasileira</option>
-                        <option value="Flamengo">Flamengo</option>
-                        <option value="Corinthians">Corinthians</option>
-                        <option value="Palmeiras">Palmeiras</option>
-                    </select>
+
+                    <div class="clube-search-wrapper" id="clube-search-wrapper">
+                        <div class="clube-input-area">
+                            <input
+                                type="text"
+                                id="input-clube"
+                                placeholder="Digite ou escolha o clube..."
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="button"
+                                id="btn-toggle-clubes"
+                                class="btn-toggle-clubes"
+                                aria-label="Abrir lista de clubes"
+                            >
+                                ▾
+                            </button>
+                        </div>
+
+                        <div
+                            id="dropdown-clubes"
+                            class="dropdown-clubes"
+                            aria-hidden="true"
+                        ></div>
+                    </div>
                 </div>
 
                 <div style="display: flex; gap: 10px;">
                     <div class="input-group" style="flex: 1;">
                         <input type="number" id="input-peso" placeholder="PESO (KG)">
                     </div>
+
                     <div class="input-group" style="flex: 1;">
                         <input type="number" id="input-altura" placeholder="ALTURA (CM)">
                     </div>
                 </div>
+
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevStep(2)">VOLTAR</button>
                     <button class="btn btn-primary" onclick="preparaRevisao()">PRÓXIMO ➔</button>
@@ -170,10 +222,25 @@
                 <p class="subtitle" style="color: var(--azul-principal); font-weight: 800;">Não fazemos alterações após o pagamento.</p>
 
                 <div class="review-box">
-                    <div class="review-row"><span class="review-label">NOME</span><span id="rev-nome">--</span></div>
-                    <div class="review-row"><span class="review-label">PESO</span><span id="rev-peso">-- kg</span></div>
-                    <div class="review-row"><span class="review-label">ALTURA</span><span id="rev-altura">-- cm</span></div>
-                    <div class="review-row"><span class="review-label">CLUBE</span><span id="rev-clube">--</span></div>
+                    <div class="review-row">
+                        <span class="review-label">NOME</span>
+                        <span id="rev-nome">--</span>
+                    </div>
+
+                    <div class="review-row">
+                        <span class="review-label">PESO</span>
+                        <span id="rev-peso">-- kg</span>
+                    </div>
+
+                    <div class="review-row">
+                        <span class="review-label">ALTURA</span>
+                        <span id="rev-altura">-- cm</span>
+                    </div>
+
+                    <div class="review-row">
+                        <span class="review-label">CLUBE</span>
+                        <span id="rev-clube">--</span>
+                    </div>
                 </div>
 
                 <div class="nav-buttons" style="flex-direction: column; gap: 15px;">
@@ -182,12 +249,14 @@
                 </div>
             </div>
 
-<div class="step" id="step-loading">
+            <div class="step" id="step-loading">
                 <h2>GERANDO SUA FIGURINHA</h2>
-                <p class="subtitle">Não saia dessa tela, leva até 2 minutos.</p>
+                <p class="subtitle">Não saia dessa tela. Estamos criando sua prévia personalizada.</p>
+
                 <div class="loading-video">
                     <img src="https://media.giphy.com/media/26FPCXdkvDbKBbgOI/giphy.gif" alt="Processando">
                 </div>
+
                 <div class="loading-bar-container">
                     <div class="loading-bar-fill" id="loading-bar-fill"></div>
                 </div>
@@ -195,14 +264,30 @@
 
             <div class="step" id="step-final">
                 <h2 style="font-size: 2.2rem; color: #00E676;">SUCESSO!</h2>
-                <p class="subtitle" style="font-weight: bold; color: var(--azul-principal);">Sua figurinha foi gerada!</p>
-                <div style="background: #eee; height: 250px; border-radius: 10px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #999; border: 2px dashed #ccc;">
-                    [ PRÉVIA DA FIGURINHA BORRADA AQUI ]
+
+                <p class="subtitle" style="font-weight: bold; color: var(--azul-principal);">
+                    Sua figurinha foi gerada!
+                </p>
+
+                <div class="preview-figurinha-box">
+                    <img id="preview-figurinha" src="" alt="Prévia da Figurinha">
                 </div>
-                <h3 style="font-family: 'Anton', sans-serif; font-size: 2.5rem; color: var(--azul-principal); margin: 10px 0;">R$ 12,90</h3>
-                <button class="btn" style="background: #00E676; color: #000; margin-top: 10px;" onclick="goToCheckout()">GARANTIR MINHA FIGURINHA</button>
+
+                <p class="preview-aviso">
+                    Esta é uma prévia com marca d’água. A imagem final sem marca será liberada após o pagamento.
+                </p>
+                
+                <h3 class="preco-final">R$ 12,90</h3>
+
+                <button class="btn btn-comprar-final" onclick="goToCheckout()">
+                    GARANTIR MINHA FIGURINHA
+                </button>
             </div>
             
-        </div> </div> <script src="soucer/js/script.js"></script>
+        </div> 
+    </div> 
+    
+    <script src="soucer/js/clubes.js"></script>
+    <script src="soucer/js/script.js"></script>
 </body>
 </html>
