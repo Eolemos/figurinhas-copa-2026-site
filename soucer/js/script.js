@@ -1287,21 +1287,29 @@ function goToCheckout() {
     const emailCliente = localStorage.getItem('emailCliente') || "";
     const previewUrl = localStorage.getItem('previewUrl') || "";
 
-    const checkoutBase = "https://pay.kiwify.com.br/s6s1baf";
+    const checkoutBase = "https://pay.cakto.com.br/3bbymak_932922";
 
     const parametros = new URLSearchParams();
 
+    // E-mail do cliente
     parametros.set("email", emailCliente);
 
-    // Campos de rastreamento que a Kiwify devolve no webhook
+    // Campos antigos que ainda podem ajudar no rastreamento
     parametros.set("sck", stickerId);
     parametros.set("s1", stickerId);
     parametros.set("s2", previewUrl);
     parametros.set("src", "site_figurinhas_copa26");
 
+    // Campos que a Cakto devolve no webhook
+    parametros.set("utm_source", "site");
+    parametros.set("utm_medium", "checkout");
+    parametros.set("utm_campaign", "figurinhas_copa26");
+    parametros.set("utm_term", stickerId);
+    parametros.set("utm_content", stickerId);
+
     const checkoutUrl = `${checkoutBase}?${parametros.toString()}`;
 
-    console.log("Indo para checkout com:", {
+    console.log("Indo para checkout Cakto com:", {
         stickerId,
         emailCliente,
         previewUrl,
