@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
   <title>Mais 3 Figurinhas Personalizadas | Copa 2026</title>
 
@@ -11,110 +11,125 @@
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
       padding: 0;
+      width: 100%;
+      min-height: 100%;
       background: #06131f;
       color: #ffffff;
       font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body {
       min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(0, 230, 118, 0.18), transparent 34%),
+        linear-gradient(180deg, #06131f 0%, #030914 100%);
+      padding: 12px 10px 28px;
     }
 
     .mais3-container {
-      width: min(980px, 92%);
-      margin: 32px auto;
-      padding: 24px;
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 18px 13px 22px;
       border-radius: 22px;
-      background: rgba(5, 18, 32, 0.94);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      background: rgba(5, 18, 32, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
     }
 
     .mais3-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
 
     .mais3-header h1 {
-      font-size: clamp(30px, 5vw, 50px);
+      font-size: 30px;
+      line-height: 1.05;
       margin: 0 0 12px;
       color: #00e676;
       font-weight: 900;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.7px;
     }
 
     .mais3-header p {
-      max-width: 760px;
       margin: 8px auto;
       color: #d6e4ee;
-      line-height: 1.5;
-      font-size: 18px;
+      line-height: 1.48;
+      font-size: 15.5px;
       font-weight: 600;
     }
 
     .alerta-uso-unico {
-      margin: 24px 0;
-      padding: 18px;
+      margin: 18px 0 0;
+      padding: 15px 14px;
       border-radius: 14px;
       background: rgba(249, 214, 92, 0.12);
       border: 1px solid rgba(249, 214, 92, 0.55);
       color: #f9d65c;
-      font-size: 17px;
+      font-size: 14.5px;
       font-weight: 800;
-      line-height: 1.55;
+      line-height: 1.48;
+      text-align: left;
     }
 
     .bloco-os,
     .bloco-figurinha {
-      margin-top: 22px;
-      padding: 20px;
+      margin-top: 18px;
+      padding: 16px 13px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.065);
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .bloco-os h2,
     .bloco-figurinha h2 {
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       color: #ffffff;
-      font-size: 25px;
+      font-size: 22px;
+      line-height: 1.15;
       font-weight: 900;
-      text-transform: none;
-      letter-spacing: 0;
+      letter-spacing: -0.2px;
     }
 
     .grid-form {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: 1fr;
+      gap: 13px;
     }
 
     .campo {
       display: flex;
       flex-direction: column;
       gap: 7px;
-    }
-
-    .campo.full {
-      grid-column: 1 / -1;
+      position: relative;
+      min-width: 0;
     }
 
     .campo label {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
       color: #eef7ff;
     }
 
     .campo input {
       width: 100%;
+      min-height: 50px;
       border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 12px;
+      border-radius: 13px;
       padding: 13px 14px;
       background: rgba(255, 255, 255, 0.10);
       color: #ffffff;
       outline: none;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       font-family: Arial, Helvetica, sans-serif;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     .campo input::placeholder {
@@ -127,8 +142,106 @@
       box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.16);
     }
 
+    .campo input[type="file"] {
+      padding: 12px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hint {
+      margin-top: 1px;
+      color: rgba(214, 228, 238, 0.75);
+      font-size: 12.5px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .clube-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .clube-wrapper input {
+      padding-right: 48px;
+    }
+
+    .btn-clube {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 10px;
+      background: rgba(0, 230, 118, 0.16);
+      color: #00e676;
+      font-weight: 900;
+      font-size: 18px;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .dropdown-clubes {
+      display: none;
+      position: absolute;
+      z-index: 80;
+      left: 0;
+      right: 0;
+      top: calc(100% + 6px);
+      max-height: 260px;
+      overflow-y: auto;
+      border-radius: 14px;
+      background: #071827;
+      border: 1px solid rgba(0, 230, 118, 0.34);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.42);
+      padding: 8px 0;
+    }
+
+    .dropdown-clubes.aberto {
+      display: block;
+    }
+
+    .dropdown-grupo {
+      padding: 9px 13px 6px;
+      color: #f9d65c;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .clube-opcao {
+      width: 100%;
+      border: 0;
+      text-align: left;
+      padding: 12px 14px;
+      border-radius: 0;
+      background: transparent;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .clube-opcao:hover,
+    .clube-opcao.ativo {
+      background: rgba(0, 230, 118, 0.16);
+      color: #00e676;
+    }
+
+    .clube-sem-resultado {
+      padding: 14px;
+      color: #d6e4ee;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4;
+      text-align: center;
+    }
+
     .acoes {
-      margin-top: 28px;
+      margin-top: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -136,18 +249,20 @@
     }
 
     .btn-enviar {
-      width: min(420px, 100%);
+      width: 100%;
       border: 0;
       border-radius: 16px;
-      padding: 16px 22px;
+      padding: 17px 18px;
       cursor: pointer;
       background: linear-gradient(135deg, #00e676, #00b85c);
       color: #06131f;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 900;
       text-transform: uppercase;
       box-shadow: 0 12px 28px rgba(0, 230, 118, 0.28);
       font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.25;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .btn-enviar:disabled {
@@ -155,10 +270,16 @@
       cursor: not-allowed;
     }
 
+    .btn-enviar:active {
+      transform: scale(0.98);
+    }
+
     .mensagem-status {
       min-height: 24px;
       text-align: center;
       font-weight: 800;
+      font-size: 15px;
+      line-height: 1.45;
       color: #d6e4ee;
     }
 
@@ -170,13 +291,151 @@
       color: #ff6b6b;
     }
 
-    @media (max-width: 720px) {
-      .grid-form {
-        grid-template-columns: 1fr;
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(3, 9, 20, 0.93);
+      backdrop-filter: blur(8px);
+    }
+
+    .loading-card {
+      width: min(420px, 94vw);
+      padding: 24px 18px;
+      border-radius: 22px;
+      background: #071827;
+      border: 1px solid rgba(0, 230, 118, 0.26);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.55);
+      text-align: center;
+    }
+
+    .loading-gif {
+      width: 100%;
+      max-width: 260px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin: 0 auto 16px;
+      display: none;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .bola-loading {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      border: 6px solid rgba(255, 255, 255, 0.16);
+      border-top-color: #00e676;
+      animation: girar 0.9s linear infinite;
+    }
+
+    @keyframes girar {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-card h2 {
+      margin: 0 0 10px;
+      color: #00e676;
+      font-size: 25px;
+      line-height: 1.15;
+      font-weight: 900;
+    }
+
+    .loading-card p {
+      margin: 0 auto 18px;
+      color: #d6e4ee;
+      font-size: 15.5px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .loading-barra {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      margin: 12px 0 10px;
+    }
+
+    .loading-barra-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #00e676, #f9d65c);
+      transition: width 0.45s ease;
+    }
+
+    .loading-percentual {
+      color: #f9d65c;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    @media (min-width: 760px) {
+      body {
+        padding: 32px;
       }
 
       .mais3-container {
-        padding: 18px;
+        max-width: 980px;
+        padding: 26px;
+      }
+
+      .mais3-header h1 {
+        font-size: 50px;
+      }
+
+      .mais3-header p {
+        max-width: 760px;
+        font-size: 18px;
+      }
+
+      .grid-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .campo.full {
+        grid-column: 1 / -1;
+      }
+
+      .btn-enviar {
+        width: min(430px, 100%);
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      body {
+        padding: 10px 8px 22px;
+      }
+
+      .mais3-container {
+        padding: 15px 11px 18px;
+        border-radius: 18px;
+      }
+
+      .mais3-header h1 {
+        font-size: 27px;
+      }
+
+      .mais3-header p,
+      .alerta-uso-unico,
+      .campo input,
+      .mensagem-status {
+        font-size: 14.5px;
+      }
+
+      .bloco-os,
+      .bloco-figurinha {
+        padding: 14px 11px;
       }
     }
   </style>
@@ -187,17 +446,17 @@
     <section class="mais3-header">
       <h1>Mais 3 Figurinhas Personalizadas</h1>
       <p>
-        Preencha abaixo os dados das 3 novas figurinhas. Cada figurinha pode ter
-        foto, nome, data de nascimento, altura, peso e clube diferentes.
+        Preencha os dados das 3 novas figurinhas. Cada uma pode ter foto, nome,
+        nascimento, altura, peso e clube diferentes.
       </p>
 
       <div class="alerta-uso-unico">
         Atenção: a Ordem de Serviço e o token só podem ser utilizados uma única vez.
-        Revise todos os dados antes de enviar. Em caso de erro, entre em contato com o suporte.
+        Revise todos os dados antes de enviar.
       </div>
     </section>
 
-    <form id="formMais3" enctype="multipart/form-data">
+    <form id="formMais3" enctype="multipart/form-data" autocomplete="off">
       <section class="bloco-os">
         <h2>Dados da Ordem de Serviço</h2>
 
@@ -208,7 +467,7 @@
               type="text"
               id="codigoOS"
               name="codigoOS"
-              placeholder="Ex: OS-MAIS3-ABC12345"
+              placeholder="OS-MAIS3-ABC12345"
               required
             />
           </div>
@@ -219,7 +478,7 @@
               type="text"
               id="token"
               name="token"
-              placeholder="Ex: A1B2-C3D4-E5F6"
+              placeholder="A1B2-C3D4-E5F6"
               required
             />
           </div>
@@ -237,27 +496,33 @@
 
           <div class="campo">
             <label for="nome1">Nome</label>
-            <input type="text" id="nome1" name="nome1" required />
+            <input type="text" id="nome1" name="nome1" placeholder="Nome do craque" required />
           </div>
 
           <div class="campo">
             <label for="dataNascimento1">Data de nascimento</label>
-            <input type="text" id="dataNascimento1" name="dataNascimento1" placeholder="DD-MM-AAAA" required />
+            <input type="text" id="dataNascimento1" name="dataNascimento1" class="campo-data" inputmode="numeric" maxlength="10" placeholder="28/09/1983" required />
           </div>
 
           <div class="campo">
             <label for="altura1">Altura</label>
-            <input type="text" id="altura1" name="altura1" placeholder="Ex: 1,75 m" required />
+            <input type="text" id="altura1" name="altura1" class="campo-altura" inputmode="decimal" placeholder="175 ou 1,75" required />
+            <div class="hint">Ex.: 175 vira 1,75 m</div>
           </div>
 
           <div class="campo">
             <label for="peso1">Peso</label>
-            <input type="text" id="peso1" name="peso1" placeholder="Ex: 72" required />
+            <input type="text" id="peso1" name="peso1" class="campo-peso" inputmode="decimal" placeholder="70" required />
+            <div class="hint">Ex.: 70 vira 70 kg</div>
           </div>
 
           <div class="campo full">
             <label for="clube1">Clube ou seleção</label>
-            <input type="text" id="clube1" name="clube1" required />
+            <div class="clube-wrapper" data-indice="1">
+              <input type="text" id="clube1" name="clube1" class="campo-clube" placeholder="Digite ou escolha na lista" required />
+              <button type="button" class="btn-clube" aria-label="Abrir lista">⌄</button>
+              <div class="dropdown-clubes" id="dropdown-clube1" aria-hidden="true"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -273,27 +538,33 @@
 
           <div class="campo">
             <label for="nome2">Nome</label>
-            <input type="text" id="nome2" name="nome2" required />
+            <input type="text" id="nome2" name="nome2" placeholder="Nome do craque" required />
           </div>
 
           <div class="campo">
             <label for="dataNascimento2">Data de nascimento</label>
-            <input type="text" id="dataNascimento2" name="dataNascimento2" placeholder="DD-MM-AAAA" required />
+            <input type="text" id="dataNascimento2" name="dataNascimento2" class="campo-data" inputmode="numeric" maxlength="10" placeholder="28/09/1983" required />
           </div>
 
           <div class="campo">
             <label for="altura2">Altura</label>
-            <input type="text" id="altura2" name="altura2" placeholder="Ex: 1,75 m" required />
+            <input type="text" id="altura2" name="altura2" class="campo-altura" inputmode="decimal" placeholder="175 ou 1,75" required />
+            <div class="hint">Ex.: 175 vira 1,75 m</div>
           </div>
 
           <div class="campo">
             <label for="peso2">Peso</label>
-            <input type="text" id="peso2" name="peso2" placeholder="Ex: 72" required />
+            <input type="text" id="peso2" name="peso2" class="campo-peso" inputmode="decimal" placeholder="70" required />
+            <div class="hint">Ex.: 70 vira 70 kg</div>
           </div>
 
           <div class="campo full">
             <label for="clube2">Clube ou seleção</label>
-            <input type="text" id="clube2" name="clube2" required />
+            <div class="clube-wrapper" data-indice="2">
+              <input type="text" id="clube2" name="clube2" class="campo-clube" placeholder="Digite ou escolha na lista" required />
+              <button type="button" class="btn-clube" aria-label="Abrir lista">⌄</button>
+              <div class="dropdown-clubes" id="dropdown-clube2" aria-hidden="true"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -309,27 +580,33 @@
 
           <div class="campo">
             <label for="nome3">Nome</label>
-            <input type="text" id="nome3" name="nome3" required />
+            <input type="text" id="nome3" name="nome3" placeholder="Nome do craque" required />
           </div>
 
           <div class="campo">
             <label for="dataNascimento3">Data de nascimento</label>
-            <input type="text" id="dataNascimento3" name="dataNascimento3" placeholder="DD-MM-AAAA" required />
+            <input type="text" id="dataNascimento3" name="dataNascimento3" class="campo-data" inputmode="numeric" maxlength="10" placeholder="28/09/1983" required />
           </div>
 
           <div class="campo">
             <label for="altura3">Altura</label>
-            <input type="text" id="altura3" name="altura3" placeholder="Ex: 1,75 m" required />
+            <input type="text" id="altura3" name="altura3" class="campo-altura" inputmode="decimal" placeholder="175 ou 1,75" required />
+            <div class="hint">Ex.: 175 vira 1,75 m</div>
           </div>
 
           <div class="campo">
             <label for="peso3">Peso</label>
-            <input type="text" id="peso3" name="peso3" placeholder="Ex: 72" required />
+            <input type="text" id="peso3" name="peso3" class="campo-peso" inputmode="decimal" placeholder="70" required />
+            <div class="hint">Ex.: 70 vira 70 kg</div>
           </div>
 
           <div class="campo full">
             <label for="clube3">Clube ou seleção</label>
-            <input type="text" id="clube3" name="clube3" required />
+            <div class="clube-wrapper" data-indice="3">
+              <input type="text" id="clube3" name="clube3" class="campo-clube" placeholder="Digite ou escolha na lista" required />
+              <button type="button" class="btn-clube" aria-label="Abrir lista">⌄</button>
+              <div class="dropdown-clubes" id="dropdown-clube3" aria-hidden="true"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -344,6 +621,30 @@
     </form>
   </main>
 
+  <div class="loading-overlay" id="loadingOverlay" aria-hidden="true">
+    <div class="loading-card">
+      <img
+        class="loading-gif"
+        id="loadingGif"
+        src="../soucer/img/loading.gif"
+        alt="Gerando figurinhas"
+      />
+
+      <div class="bola-loading" id="fallbackLoading"></div>
+
+      <h2>Gerando suas figurinhas</h2>
+      <p id="loadingTexto">Enviando dados para o servidor...</p>
+
+      <div class="loading-barra">
+        <div class="loading-barra-fill" id="loadingBarraFill"></div>
+      </div>
+
+      <div class="loading-percentual" id="loadingPercentual">0%</div>
+    </div>
+  </div>
+
+  <script src="../soucer/js/clubes.js"></script>
+
   <script>
     const API_MAIS_3 =
       "https://servidor-figurinhas-copa-2026-production.up.railway.app/api/mais-3/enviar";
@@ -352,13 +653,438 @@
     const btnEnviar = document.getElementById("btnEnviar");
     const mensagemStatus = document.getElementById("mensagemStatus");
 
+    const loadingOverlay = document.getElementById("loadingOverlay");
+    const loadingTexto = document.getElementById("loadingTexto");
+    const loadingBarraFill = document.getElementById("loadingBarraFill");
+    const loadingPercentual = document.getElementById("loadingPercentual");
+    const loadingGif = document.getElementById("loadingGif");
+    const fallbackLoading = document.getElementById("fallbackLoading");
+
+    let intervaloLoading = null;
+    let progressoAtual = 0;
+    const clubeIndexAtivo = {};
+
+    const CLUBES_MAIS3 = window.CLUBES_FAMOSOS || {};
+
+    window.addEventListener("load", function () {
+      configurarMascaraData();
+      configurarMascaraPeso();
+      configurarMascaraAltura();
+      configurarDropdownsClubes();
+      configurarGifLoading();
+    });
+
+    function configurarGifLoading() {
+      if (!loadingGif) return;
+
+      loadingGif.onload = function () {
+        loadingGif.style.display = "block";
+        if (fallbackLoading) {
+          fallbackLoading.style.display = "none";
+        }
+      };
+
+      loadingGif.onerror = function () {
+        loadingGif.style.display = "none";
+        if (fallbackLoading) {
+          fallbackLoading.style.display = "block";
+        }
+      };
+    }
+
     function mostrarMensagem(texto, tipo) {
       mensagemStatus.textContent = texto;
       mensagemStatus.className = "mensagem-status " + (tipo || "");
     }
 
+    function normalizarTexto(texto) {
+      return String(texto || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+    }
+
+    function obterClubesFiltrados(termo = "") {
+      const busca = normalizarTexto(termo);
+      const resultado = [];
+
+      Object.entries(CLUBES_MAIS3).forEach(([grupo, clubes]) => {
+        if (!Array.isArray(clubes)) return;
+
+        clubes.forEach((clube) => {
+          const clubeNormalizado = normalizarTexto(clube);
+          const grupoNormalizado = normalizarTexto(grupo);
+
+          if (
+            !busca ||
+            clubeNormalizado.includes(busca) ||
+            grupoNormalizado.includes(busca)
+          ) {
+            resultado.push({
+              grupo,
+              clube,
+            });
+          }
+        });
+      });
+
+      return resultado;
+    }
+
+    function fecharTodosDropdowns() {
+      document.querySelectorAll(".dropdown-clubes").forEach((dropdown) => {
+        dropdown.classList.remove("aberto");
+        dropdown.setAttribute("aria-hidden", "true");
+      });
+    }
+
+    function abrirDropdown(indice) {
+      fecharTodosDropdowns();
+
+      const dropdown = document.getElementById(`dropdown-clube${indice}`);
+
+      if (!dropdown) return;
+
+      dropdown.classList.add("aberto");
+      dropdown.setAttribute("aria-hidden", "false");
+    }
+
+    function renderizarDropdown(indice, termo = "") {
+      const dropdown = document.getElementById(`dropdown-clube${indice}`);
+      const input = document.getElementById(`clube${indice}`);
+
+      if (!dropdown || !input) return;
+
+      dropdown.innerHTML = "";
+      clubeIndexAtivo[indice] = -1;
+
+      if (!Object.keys(CLUBES_MAIS3).length) {
+        const vazio = document.createElement("div");
+        vazio.className = "clube-sem-resultado";
+        vazio.textContent = "Lista de clubes não carregada. Verifique o arquivo clubes.js.";
+        dropdown.appendChild(vazio);
+        return;
+      }
+
+      const clubes = obterClubesFiltrados(termo).slice(0, 120);
+
+      if (!clubes.length) {
+        const vazio = document.createElement("div");
+        vazio.className = "clube-sem-resultado";
+        vazio.textContent = "Nenhum clube encontrado. Você pode digitar manualmente.";
+        dropdown.appendChild(vazio);
+        return;
+      }
+
+      let ultimoGrupo = "";
+
+      clubes.forEach((item) => {
+        if (item.grupo !== ultimoGrupo) {
+          const grupo = document.createElement("div");
+          grupo.className = "dropdown-grupo";
+          grupo.textContent = item.grupo;
+          dropdown.appendChild(grupo);
+          ultimoGrupo = item.grupo;
+        }
+
+        const botao = document.createElement("button");
+        botao.type = "button";
+        botao.className = "clube-opcao";
+        botao.textContent = item.clube;
+
+        botao.addEventListener("mousedown", function (evento) {
+          evento.preventDefault();
+          input.value = item.clube;
+          fecharTodosDropdowns();
+        });
+
+        dropdown.appendChild(botao);
+      });
+    }
+
+    function configurarDropdownsClubes() {
+      [1, 2, 3].forEach((indice) => {
+        const input = document.getElementById(`clube${indice}`);
+        const wrapper = input?.closest(".clube-wrapper");
+        const botao = wrapper?.querySelector(".btn-clube");
+
+        if (!input || !wrapper || !botao) return;
+
+        renderizarDropdown(indice, "");
+
+        input.addEventListener("focus", function () {
+          renderizarDropdown(indice, input.value);
+          abrirDropdown(indice);
+        });
+
+        input.addEventListener("input", function () {
+          renderizarDropdown(indice, input.value);
+          abrirDropdown(indice);
+        });
+
+        botao.addEventListener("mousedown", function (evento) {
+          evento.preventDefault();
+
+          const dropdown = document.getElementById(`dropdown-clube${indice}`);
+          const estaAberto = dropdown?.classList.contains("aberto");
+
+          if (estaAberto) {
+            fecharTodosDropdowns();
+            return;
+          }
+
+          input.focus();
+          renderizarDropdown(indice, input.value);
+          abrirDropdown(indice);
+        });
+
+        input.addEventListener("keydown", function (evento) {
+          const dropdown = document.getElementById(`dropdown-clube${indice}`);
+          const opcoes = dropdown ? Array.from(dropdown.querySelectorAll(".clube-opcao")) : [];
+
+          if (!dropdown || !dropdown.classList.contains("aberto") || !opcoes.length) {
+            return;
+          }
+
+          if (evento.key === "ArrowDown") {
+            evento.preventDefault();
+            clubeIndexAtivo[indice] = Math.min((clubeIndexAtivo[indice] || -1) + 1, opcoes.length - 1);
+            atualizarAtivo(opcoes, clubeIndexAtivo[indice]);
+          }
+
+          if (evento.key === "ArrowUp") {
+            evento.preventDefault();
+            clubeIndexAtivo[indice] = Math.max((clubeIndexAtivo[indice] || 0) - 1, 0);
+            atualizarAtivo(opcoes, clubeIndexAtivo[indice]);
+          }
+
+          if (evento.key === "Enter" && clubeIndexAtivo[indice] >= 0) {
+            evento.preventDefault();
+            input.value = opcoes[clubeIndexAtivo[indice]].textContent;
+            fecharTodosDropdowns();
+          }
+
+          if (evento.key === "Escape") {
+            fecharTodosDropdowns();
+          }
+        });
+      });
+
+      document.addEventListener("mousedown", function (evento) {
+        if (!evento.target.closest(".clube-wrapper")) {
+          fecharTodosDropdowns();
+        }
+      });
+    }
+
+    function atualizarAtivo(opcoes, indexAtivo) {
+      opcoes.forEach((opcao, index) => {
+        opcao.classList.toggle("ativo", index === indexAtivo);
+      });
+
+      if (opcoes[indexAtivo]) {
+        opcoes[indexAtivo].scrollIntoView({
+          block: "nearest",
+        });
+      }
+    }
+
+    function mascararData(valor) {
+      const numeros = String(valor || "").replace(/\D/g, "").slice(0, 8);
+
+      if (numeros.length <= 2) {
+        return numeros;
+      }
+
+      if (numeros.length <= 4) {
+        return `${numeros.slice(0, 2)}/${numeros.slice(2)}`;
+      }
+
+      return `${numeros.slice(0, 2)}/${numeros.slice(2, 4)}/${numeros.slice(4)}`;
+    }
+
+    function configurarMascaraData() {
+      document.querySelectorAll(".campo-data").forEach((input) => {
+        input.addEventListener("input", function () {
+          input.value = mascararData(input.value);
+        });
+
+        input.addEventListener("blur", function () {
+          input.value = mascararData(input.value);
+        });
+      });
+    }
+
+    function limparNumero(valor) {
+      return String(valor || "")
+        .toLowerCase()
+        .replace(/quilos/g, "")
+        .replace(/quilo/g, "")
+        .replace(/kg/g, "")
+        .replace(/metros/g, "")
+        .replace(/metro/g, "")
+        .replace(/cm/g, "")
+        .replace(/m/g, "")
+        .trim()
+        .replace(",", ".");
+    }
+
+    function formatarPeso(valor) {
+      const limpo = limparNumero(valor);
+
+      if (!limpo) return "";
+
+      const numero = Number(limpo);
+
+      if (isNaN(numero)) {
+        return String(valor || "").trim();
+      }
+
+      const texto =
+        Number.isInteger(numero)
+          ? String(numero)
+          : String(numero.toFixed(1)).replace(".", ",");
+
+      return `${texto} kg`;
+    }
+
+    function configurarMascaraPeso() {
+      document.querySelectorAll(".campo-peso").forEach((input) => {
+        input.addEventListener("blur", function () {
+          input.value = formatarPeso(input.value);
+        });
+      });
+    }
+
+    function formatarAltura(valor) {
+      const textoOriginal = String(valor || "").trim().toLowerCase();
+
+      if (!textoOriginal) return "";
+
+      const temSeparadorDecimal =
+        textoOriginal.includes(",") || textoOriginal.includes(".");
+
+      const numero = Number(limparNumero(textoOriginal));
+
+      if (isNaN(numero)) {
+        return String(valor || "").trim();
+      }
+
+      let metros;
+
+      if (textoOriginal.includes("cm")) {
+        metros = numero / 100;
+      } else if (!temSeparadorDecimal && numero >= 50) {
+        metros = numero / 100;
+      } else {
+        metros = numero;
+      }
+
+      if (!metros || isNaN(metros)) {
+        return String(valor || "").trim();
+      }
+
+      return `${metros.toFixed(2).replace(".", ",")} m`;
+    }
+
+    function configurarMascaraAltura() {
+      document.querySelectorAll(".campo-altura").forEach((input) => {
+        input.addEventListener("blur", function () {
+          input.value = formatarAltura(input.value);
+        });
+      });
+    }
+
+    function prepararCamposAntesDoEnvio() {
+      [1, 2, 3].forEach((indice) => {
+        const data = document.getElementById(`dataNascimento${indice}`);
+        const peso = document.getElementById(`peso${indice}`);
+        const altura = document.getElementById(`altura${indice}`);
+        const clube = document.getElementById(`clube${indice}`);
+
+        if (data) data.value = mascararData(data.value);
+        if (peso) peso.value = formatarPeso(peso.value);
+        if (altura) altura.value = formatarAltura(altura.value);
+        if (clube) clube.value = clube.value.trim().replace(/\s+/g, " ");
+      });
+    }
+
+    function setLoadingProgress(percentual, texto) {
+      progressoAtual = Math.max(0, Math.min(100, Math.round(percentual)));
+
+      loadingBarraFill.style.width = progressoAtual + "%";
+      loadingPercentual.textContent = progressoAtual + "%";
+      loadingTexto.textContent = texto;
+    }
+
+    function mostrarLoading() {
+      loadingOverlay.style.display = "flex";
+      loadingOverlay.setAttribute("aria-hidden", "false");
+
+      progressoAtual = 4;
+      setLoadingProgress(4, "Enviando fotos e dados para o servidor...");
+
+      const mensagens = [
+        "Validando sua Ordem de Serviço...",
+        "Preparando as 3 fotos para geração...",
+        "Gerando a primeira figurinha...",
+        "Gerando a segunda figurinha...",
+        "Gerando a terceira figurinha...",
+        "Salvando os arquivos finais...",
+        "Preparando o e-mail com as 3 figurinhas..."
+      ];
+
+      let etapa = 0;
+
+      intervaloLoading = setInterval(function () {
+        if (progressoAtual < 22) {
+          progressoAtual += 3;
+          etapa = 0;
+        } else if (progressoAtual < 40) {
+          progressoAtual += 2;
+          etapa = 1;
+        } else if (progressoAtual < 58) {
+          progressoAtual += 1.4;
+          etapa = 2;
+        } else if (progressoAtual < 74) {
+          progressoAtual += 1;
+          etapa = 3;
+        } else if (progressoAtual < 88) {
+          progressoAtual += 0.7;
+          etapa = 4;
+        } else if (progressoAtual < 94) {
+          progressoAtual += 0.25;
+          etapa = 5;
+        } else {
+          progressoAtual = 94;
+          etapa = 6;
+        }
+
+        setLoadingProgress(progressoAtual, mensagens[etapa]);
+      }, 900);
+    }
+
+    function finalizarLoadingSucesso() {
+      clearInterval(intervaloLoading);
+      setLoadingProgress(100, "Tudo certo. As 3 figurinhas foram enviadas por e-mail.");
+
+      setTimeout(function () {
+        loadingOverlay.style.display = "none";
+        loadingOverlay.setAttribute("aria-hidden", "true");
+      }, 1200);
+    }
+
+    function esconderLoadingErro() {
+      clearInterval(intervaloLoading);
+      loadingOverlay.style.display = "none";
+      loadingOverlay.setAttribute("aria-hidden", "true");
+    }
+
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
+
+      prepararCamposAntesDoEnvio();
 
       const confirmar = confirm(
         "Confirma o envio das 3 figurinhas? O token só poderá ser utilizado uma única vez."
@@ -369,11 +1095,34 @@
       }
 
       btnEnviar.disabled = true;
-      btnEnviar.textContent = "Enviando...";
-      mostrarMensagem("Enviando dados para o servidor. Aguarde.", "");
+      btnEnviar.textContent = "Gerando figurinhas...";
+      mostrarMensagem("Processando. Aguarde a finalização.", "");
+      mostrarLoading();
 
       try {
         const formData = new FormData(form);
+
+        [1, 2, 3].forEach((indice) => {
+          formData.set(
+            `dataNascimento${indice}`,
+            document.getElementById(`dataNascimento${indice}`).value
+          );
+
+          formData.set(
+            `altura${indice}`,
+            document.getElementById(`altura${indice}`).value
+          );
+
+          formData.set(
+            `peso${indice}`,
+            document.getElementById(`peso${indice}`).value
+          );
+
+          formData.set(
+            `clube${indice}`,
+            document.getElementById(`clube${indice}`).value
+          );
+        });
 
         const resposta = await fetch(API_MAIS_3, {
           method: "POST",
@@ -390,13 +1139,21 @@
           );
         }
 
+        finalizarLoadingSucesso();
+
         mostrarMensagem(
-          "Dados enviados com sucesso. Suas 3 figurinhas serão enviadas por e-mail.",
+          "Dados enviados com sucesso. As 3 figurinhas serão enviadas por e-mail.",
           "sucesso"
         );
 
         form.reset();
+        fecharTodosDropdowns();
+
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = "Enviar e gerar minhas 3 figurinhas";
       } catch (erro) {
+        esconderLoadingErro();
+
         mostrarMensagem(erro.message, "erro");
         btnEnviar.disabled = false;
         btnEnviar.textContent = "Enviar e gerar minhas 3 figurinhas";
