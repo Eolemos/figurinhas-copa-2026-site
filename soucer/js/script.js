@@ -1287,7 +1287,7 @@ function goToCheckout() {
     const emailCliente = localStorage.getItem('emailCliente') || "";
     const previewUrl = localStorage.getItem('previewUrl') || "";
 
-    const checkoutBase = "https://pay.cakto.com.br/3bbymak_932922";
+    const checkoutBase = "https://pay.cakto.com.br/3adgaad";
 
     const parametros = new URLSearchParams();
 
